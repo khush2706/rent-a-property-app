@@ -1,4 +1,4 @@
-
+//context for the filtered data
 import { createContext, useState } from "react";
 import { data } from "../MOCK_DATA";
 

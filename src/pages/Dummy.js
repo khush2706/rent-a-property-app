@@ -1,8 +1,8 @@
 const Dummy = () => {
   return (
-    <>
-      <h1>Dummy Page</h1>
-    </>
+    <div className="h-screen flex justify-center items-center">
+            <h1 className="text-6xl text-bold">Dummy Page</h1>
+    </div>    
   );
 };
 

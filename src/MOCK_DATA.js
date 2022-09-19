@@ -10,6 +10,7 @@ export const data= [
         region:"New York USA",
         type: "House",
         lastMoveInDate: "2022-09-12",
+        tag: "popular",
       },
 
       {
@@ -49,5 +50,6 @@ export const data= [
         region:"Delhi India",
         type: "Apartment",
         lastMoveInDate: "2022-09-19",
+        tag: "popular",
       },
 ];

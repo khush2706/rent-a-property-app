@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
-            <Route index path="/rent" element={<Rent />} />
+            <Route path="rent" element={<Rent />} />
             <Route path="*" element={<Dummy />} />
           </Route>
         </Routes>

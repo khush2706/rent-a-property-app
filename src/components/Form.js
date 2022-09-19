@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import FilteredDataContext from "../context/FilteredDataContext";
-import { data } from "../MOCK_DATA"
+import { data } from "../MOCK_DATA";
 
 const Form = () => {
   const [date, setDate] = useState(null);
@@ -9,23 +9,49 @@ const Form = () => {
   const [propertyType, setPropertyType] = useState(null);
   let { filteredData, updateFilteredData } = useContext(FilteredDataContext);
   let arr;
-  const filterResults = () =>{
+
+  //sorts the data array such that popular places come at lower index
+  const sortData = (arr) => {
+    if (arr.length > 1) {
+      arr.sort((a, b) => {
+        if (a.tag === "popular" && !b.tag) {
+          return -1;
+        }
+        if (!a.tag && b.tag === "popular") {
+          return 1;
+        }
+        return 0;
+      });
+    }
+  };
+
+  //filters the data by first checking if the filter is applied, if yes it applied the filters in layers
+  const filterResults = () => {
     arr = data;
-    arr = !place ?arr:arr.filter((data)=>{
-      return data.region.toLowerCase().indexOf(place.toLowerCase()) !== -1;
-    });
-    arr = !price ?arr:arr.filter((data)=>{
-      const [low, high] = price.split('-');
-      return data.rent>=parseInt(low) && data.rent<parseInt(high);
-    });
-    arr = !propertyType ?arr:arr.filter((data)=>{
-      return data.type.toLowerCase()===propertyType.toLowerCase();
-    });
-    arr = !date ?arr:arr.filter((data)=>{
-      return data.lastMoveInDate>date;
-    })
+    arr = !place
+      ? arr
+      : arr.filter((data) => {
+          return data.region.toLowerCase().indexOf(place.toLowerCase()) !== -1;
+        });
+    arr = !price
+      ? arr
+      : arr.filter((data) => {
+          const [low, high] = price.split("-");
+          return data.rent >= parseInt(low) && data.rent < parseInt(high);
+        });
+    arr = !propertyType
+      ? arr
+      : arr.filter((data) => {
+          return data.type.toLowerCase() === propertyType.toLowerCase();
+        });
+    arr = !date
+      ? arr
+      : arr.filter((data) => {
+          return data.lastMoveInDate > date;
+        });
+    sortData(arr);
     updateFilteredData(arr);
-}
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +59,10 @@ const Form = () => {
   };
 
   return (
-    <form className="flex justify-between items-center bg-white py-5 px-6 mt-8 mb-10" onSubmit={handleSubmit}>
+    <form
+      className="flex justify-between items-center bg-white py-5 px-6 mt-8 mb-10"
+      onSubmit={handleSubmit}
+    >
       <div className="form-control w-44 max-w-xs">
         <label className="label pl-4 py-0">
           <span className="label-text text-gray-400 font-medium">Location</span>
@@ -80,7 +109,9 @@ const Form = () => {
       <div className="divider divider-horizontal h-10 my-auto"></div>
       <div className="form-control w-44 max-w-xs">
         <label className="label pl-4 py-0">
-          <span className="label-text text-gray-400 font-medium">Property Type</span>
+          <span className="label-text text-gray-400 font-medium">
+            Property Type
+          </span>
         </label>
         <select
           className="select select-ghost w-44 max-w-xs font-semibold text-lg"
@@ -94,7 +125,9 @@ const Form = () => {
         </select>
       </div>
       <div className="divider divider-horizontal h-10 my-auto"></div>
-      <button className="btn btn-primary normal-case text-base bg-violet-500 border-transparent px-7 rounded-lg min-h-0 h-12">Search</button>
+      <button className="btn btn-primary normal-case text-base bg-violet-500 border-transparent px-7 rounded-lg min-h-0 h-12">
+        Search
+      </button>
     </form>
   );
 };

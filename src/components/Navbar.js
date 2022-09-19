@@ -21,6 +21,7 @@ const Navbar = () => {
             style={({ isActive }) =>
               isActive ? activeStyle : undefined
             }
+            className="px-5 rounded-lg min-h-0 h-10 my-auto mr-1"
           >
            Rent
           </NavLink>
@@ -31,6 +32,7 @@ const Navbar = () => {
             style={({ isActive }) =>
               isActive ? activeStyle : undefined
             }
+            className="px-5 rounded-lg min-h-0 h-10 my-auto mr-1"
           >
            Buy
           </NavLink>
@@ -41,6 +43,7 @@ const Navbar = () => {
             style={({ isActive }) =>
               isActive ? activeStyle : undefined
             }
+            className="px-5 rounded-lg min-h-0 h-10 my-auto mr-1"
           >
            Sell
           </NavLink>
