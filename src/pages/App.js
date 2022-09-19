@@ -1,9 +1,8 @@
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Rent from "../Rent";
-import SharedLayout from "../SharedLayout";
-import Dummy from "../Dummy";
-import { FilteredDataProvider } from "../../context/FilteredDataContext";
+import Rent from "./Rent";
+import SharedLayout from "./SharedLayout";
+import Dummy from "./Dummy";
+import { FilteredDataProvider } from "../context/FilteredDataContext";
 
 function App() {
   return (
