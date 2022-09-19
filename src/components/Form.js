@@ -71,7 +71,7 @@ const Form = () => {
             setPrice(e.target.value);
           }}
         >
-          <option>All</option>
+          <option></option>
           <option value="500-2500">$500-$2,500</option>
           <option value="2500-4000">$2,500-$4,000</option>
           <option value="4000-8000">$4,000-$8,000</option>
@@ -88,7 +88,7 @@ const Form = () => {
             setPropertyType(e.target.value);
           }}
         >
-          <option>All</option>
+          <option></option>
           <option value="house">Houses</option>
           <option value="apartment">Apartments</option>
         </select>

@@ -120,7 +120,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="flex-none">
-        <button class="btn btn-primary btn-outline border-violet-200 mx-8 rounded-lg capitalize text-base text-violet-500 px-5 min-h-0 h-10">Login</button>
+        <button className="btn btn-primary btn-outline border-violet-200 mx-8 rounded-lg capitalize text-base text-violet-500 px-5 min-h-0 h-10">Login</button>
         <button className="btn btn-primary bg-violet-500 border-transparent mr-4 capitalize text-base px-5 rounded-lg min-h-0 h-10">Signup</button>
       </div>
     </div>
